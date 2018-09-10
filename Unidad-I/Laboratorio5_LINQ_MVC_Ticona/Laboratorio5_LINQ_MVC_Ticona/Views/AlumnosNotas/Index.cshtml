@@ -1,0 +1,27 @@
+﻿@model Laboratorio5_LINQ_MVC_Ticona.Models.ClsAlumnoNota
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+	<div>
+		@using (Html.BeginForm("Index", "AlumnoNotas", FormMethod.Post))
+		{
+			<h1>Listar Alumnos</h1>
+			<br />
+			@Html.TextBoxFor(m => m.busqueda)
+			<br />
+			<input type="submit" value="BUSCAR" />
+			<br />
+		}
+		@Html.TextAreaFor(Model => Model.resultado, new { rows = "20", cols = "50" })
+	</div>
+</body>
+</html>

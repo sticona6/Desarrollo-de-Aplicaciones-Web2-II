@@ -1,0 +1,95 @@
+﻿@model Laboratorio5_LINQ_MVC_Ticona.Models.ClsAlumnoNota
+@{
+	Layout = null;
+	int id = 1;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+	<style>
+		.text-primary {
+			color:blue;
+		}
+		.text-danger {
+			color:red
+		}
+		table {
+			width: 70%;
+			border: 1px solid #000;
+		}
+
+		th, td {
+			width: 15px;
+			text-align: left;
+			vertical-align: top;
+			border: 1px solid #000;
+			border-collapse: collapse;
+			padding: 0.3em;
+			caption-side: bottom;
+		}
+
+		caption {
+			padding: 0.3em;
+			color: #fff;
+			background: #000;
+		}
+
+		th {
+			background: #eee;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		@using (Html.BeginForm("Index", "EjercicioPropuesto", FormMethod.Post))
+		{
+			<h1>Listar Alumnos</h1>
+			<br />
+			@Html.TextBoxFor(m => m.busqueda)
+			<br />
+			<br />
+			<input type="submit" value="Buscar" />
+			<br />
+		}
+	</div>
+
+	<div>
+		<br />
+		<table>
+			<tr>
+				<th>Id</th>
+				<th>Nombre</th>
+				<th>Nota</th>
+				<th>Condición</th>
+			</tr>
+			@for (int i = 0; i < Model.name.Count(); i++)
+			{
+				<tr>
+					<td>@id</td>
+					<td>@Model.name[i]</td>
+					<td>
+						@if (Model.note[i] >= 10.5)
+						{
+							<spam class="text-primary">@Model.note[i]</spam>
+						}
+						else
+						{ <spam class="text-danger">@Model.note[i]</spam>}
+					</td>
+					<td>
+						@if (Model.note[i] >= 10.5)
+						{
+							<spam class="text-primary">Aprobado</spam>
+						}
+						else
+						{ <spam class="text-danger">Desaprobado</spam>}
+					</td>
+				</tr>
+				id++;
+			}
+		</table>
+	</div>
+</body>
+</html>
