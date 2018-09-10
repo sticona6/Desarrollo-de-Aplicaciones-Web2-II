@@ -1,0 +1,32 @@
+﻿@model Laboratorio4_MVC_Ticona.Models.ClsEjercicio6
+@{
+    ViewBag.Title = "MostrarAnios";
+}
+
+@using (Html.BeginForm("MostrarAnios", "Ejercicio6", FormMethod.Post))
+{
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(model=>model.Incial, "Año Inicial")
+        @Html.TextBoxFor(model=>model.Incial, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Final, "Año Final")
+        @Html.TextBoxFor(model => model.Final, new { @class = "form-control" })
+    </div>
+    <label class="radio-inline">
+        @Html.RadioButton("Anio","Mostrar Bisiestos",true)Años Bisiestos
+    </label>
+    <label class="radio-inline">
+        @Html.RadioButton("Anio", "Mostrar No Bisiestos")Años No Bisiestos
+    </label>
+    <label class="radio-inline">
+        @Html.RadioButton("Anio", "Mostrar Todos")Años Todos
+    </label>
+    <br />
+    <br />
+    <input type="submit" class="btn btn-primary" value="Calcular"/>
+}
+
+
+

@@ -1,0 +1,90 @@
+﻿@model Laboratorio4_MVC_Ticona.Models.ClsParImpar
+@{
+    ViewBag.Title = "CalcularParesImpares";
+    string val = "X";
+    int Pares = 0;
+    int Impares = 0, PromedioCPares = 0, PromedioCImpares = 0, TotalCuadros = 0, TotalCubos = 0;
+}
+
+<h2>CalcularParesImpares</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Numeros</td>
+        <td>Par</td>
+        <td>Impar</td>
+        <td>Cuadros</td>
+        <td>Cubos</td>
+    </tr>
+    @{
+        int ParesCuadrados = 0,TotalParesCuadrados=0,ImparesCuadrados=0,TotalesImparesCuadrados=0;
+        for (int i = 1; i < Model.Numero; i++)
+        {
+            TotalCuadros += (i * i);
+            TotalCubos += (i * i * i);
+            if (i * 2 == 0)
+            {
+                Pares++;
+            }
+            else {
+                Impares++;
+            }
+            if ((i * i) % 2 == 0)
+            {
+                ParesCuadrados++;
+                TotalParesCuadrados += (i * i);
+            }
+            else {
+                ImparesCuadrados++;
+                TotalesImparesCuadrados += (i*i*i);
+            }
+            <tr>
+                <td>@i</td>
+                <td>@if(@i%2==0){ @val;}</td>
+                <td>@if (@i % 2 != 0) { @val;}</td>
+                <td>@(i*i)</td>
+                <td>@(i*i*i)</td>
+            </tr>
+        }
+        if (ParesCuadrados!=0 && ImparesCuadrados!=0) {
+            PromedioCPares = TotalParesCuadrados / ParesCuadrados;
+            PromedioCImpares = TotalesImparesCuadrados / ImparesCuadrados;
+        }
+    }
+</table>
+<br />
+<br />
+<table class=" table table-bordered">
+    <thead>
+        <tr>
+            <th>Resultados</th>
+            <th>Cantidad</th>
+        </tr>
+    </thead>
+        <tbody>
+            <tr>
+                <td>Cantidad de Pares : </td>
+                <td>@Pares</td>
+            </tr>
+            <tr>
+                <td>Cantidad de Impares : </td>
+                <td>@Impares</td>
+            </tr>
+            <tr>
+                <td>Promedio Total de Cuadrados Pares : </td>
+                <td>@PromedioCPares</td>
+            </tr>
+            <tr>
+                <td>Promedio Total de Cuadrados Impares : </td>
+                <td>@PromedioCImpares</td>
+            </tr>
+            <tr>
+                <td>Suma Total de Cuadrados : </td>
+                <td>@TotalCuadros</td>
+            </tr>
+            <tr>
+                <td>Suma Total de Cubos : </td>
+                <td>@TotalCubos</td>
+            </tr>
+        </tbody>
+</table>
