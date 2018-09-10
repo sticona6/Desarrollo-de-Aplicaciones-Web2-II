@@ -1,0 +1,26 @@
+﻿@model Laboratorio4_MVC_Ticona.Models.ClsBilletes
+@{
+    ViewBag.Title = "CalcularAltaDenominacion";
+}
+
+
+
+@using (Html.BeginForm("CalcularAltaDenominacion", "Billetes", FormMethod.Post))
+{
+    <br />
+    <p>
+        @Html.LabelFor(model => model.monto, "Total S/.")
+        @Html.EditorFor(model => model.monto)
+        @Html.ValidationMessageFor(model => model.monto)
+    </p>
+
+    <button class="btn btn-primary">Calcular</button>
+    <br />
+    <br />
+    <div>
+        <p><b>Cant de S/. 100:</b><strong class="text-primary">@Model.b100</strong></p>
+        <p><b>Cant de S/. 50:</b><strong class="text-primary">@Model.b50</strong></p>
+        <p><b>Cant de S/. 20:</b><strong class="text-primary">@Model.b20</strong></p>
+        <p><b>Cant de S/. 10:</b><strong class="text-primary">@Model.b10</strong></p>
+    </div>
+}
