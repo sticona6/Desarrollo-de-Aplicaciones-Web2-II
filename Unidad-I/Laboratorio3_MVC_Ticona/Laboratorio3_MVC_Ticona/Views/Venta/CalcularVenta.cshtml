@@ -1,0 +1,43 @@
+﻿@model Laboratorio3_MVC_Ticona.Models.ClsVenta
+@{
+    //Layout = null;
+    ViewBag.Title = "Venta de Productos";
+}
+
+    <div>
+        <h1><center><b>Venta de Productos:</b></center></h1>
+        <br /><br />
+        @using(Html.BeginForm("CalcularVenta", "Venta", FormMethod.Post, new { criterio = "frm-Venta" }))
+        {
+            <div>
+                <p>
+                    @Html.LabelFor(model=>model.nombre,"Nombre")
+                    @Html.EditorFor(model=>model.nombre)
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.direccion, "Dirección")
+                    @Html.EditorFor(model => model.direccion)
+                </p>
+                <br />
+                <p>
+                    @Html.CheckBoxFor(model => model.productoUSB) USB SAMSUNG
+                </p>
+                <p>
+                    @Html.CheckBoxFor(model => model.productoMOUSE) MOUSE GAMER COURSAIR
+                </p>
+                <p>
+                    @Html.CheckBoxFor(model => model.productoTECLADO) TECLADO COURSAIR
+                </p>
+                <p>
+                    @Html.CheckBoxFor(model => model.productoDISCODURO) DISCO DURO 2TB SAMSUNG
+                </p>
+            </div>
+            <div>
+                <p><label>Sub Total: S/ @Model.subtotal</label></p>
+                <p><label>IGV: S/ @Model.igv</label></p>
+                <p><label>Total: S/ @Model.total</label></p>
+                <br />
+                <button type="submit">Calcular</button>
+            </div>
+        }
+    </div>

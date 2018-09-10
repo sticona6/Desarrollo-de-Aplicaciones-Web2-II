@@ -1,0 +1,33 @@
+﻿@model Laboratorio3_MVC_Ticona.Models.ClsRuleta
+@{
+    ViewBag.Title = "Ruleta Russa";
+    //Layout = null;
+}
+
+    <div>
+            <h1><center><b><u>Juego de la Ruleta</u></b></center></h1>
+            <br /><br />
+            @using (Html.BeginForm("GenerarRuleta", "Ruleta", FormMethod.Post, new { criterio = "frm-Venta" }))
+            {
+                <p>
+                    @Html.LabelFor(model=>model.valor1,"Ruleta")
+                </p>
+                <br />
+                <button class="btn btn-primary" type="submit">Jugar de Nuevo</button>
+
+                if (Session["i"] == null)
+                {
+                    Session["i"] = 1;
+                    <h3>?-?-?</h3>
+                }
+                else {
+                    int contador = Convert.ToInt32(Session["i"]);
+                    contador++;
+                    Session["i"] = contador;
+                    <h3>@Model.valor1-@Model.valor2-@Model.valor3</h3>
+                }
+            }
+        <br /><br />
+
+        <h2>@Model.resultado</h2>
+    </div>
