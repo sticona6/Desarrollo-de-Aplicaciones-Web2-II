@@ -1,0 +1,31 @@
+﻿@model Laboratorio1_MVC_Ticona.Models.ClsSuma
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Suma</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("Suma", "Calcular", FormMethod.Post, new { criterio = "frm-mostrar" }))
+        {
+            <h1><center>Datos del Estudiante</center></h1>
+            <div>
+                @Html.Label("Número 1")
+                @Html.TextBoxFor(model => model.numero1)<br />
+                @Html.Label("Número 2: ")
+                @Html.TextBoxFor(model => model.numero2)<br />
+                @Html.Label("Resultado: ")<br />
+                @Model.resultado
+            </div>
+            <br />
+            <input type="submit" name="Calcular" />
+        }
+    </div>
+</body>
+</html>

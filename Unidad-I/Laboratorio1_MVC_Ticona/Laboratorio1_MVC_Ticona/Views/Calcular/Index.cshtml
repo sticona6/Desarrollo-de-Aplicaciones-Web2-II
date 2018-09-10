@@ -1,0 +1,25 @@
+﻿@model Laboratorio1_MVC_Ticona.Models.ClsSuma
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div><h1><center>Sumar dos números:</center></h1></div>
+    <div>
+        <form method="post" action='@Url.Action("Suma2","Calcular")'>
+            <label>Número 1: </label>
+            <input type="text" name="Valor1"/><br />
+            <label>Número 2: </label>
+            <input type="text" name="Valor2" /><br />
+            <input type="submit" value="Calcular"/>
+        </form>
+    </div>
+</body>
+</html>

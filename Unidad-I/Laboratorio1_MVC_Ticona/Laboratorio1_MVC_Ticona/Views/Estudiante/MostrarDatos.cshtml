@@ -1,0 +1,31 @@
+﻿@model Laboratorio1_MVC_Ticona.Models.ClsEstudiante
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>MostrarDatos</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm("MostrarDatos", "Estudiante", FormMethod.Post, new { criterio = "frm-mostrar" }))
+        {
+            <h1><center>Datos del Estudiante</center></h1>
+            <div align="center">
+                @Html.Label("Nombres")
+                @Model.nombre <br />
+                @Html.Label("Apellidos: ")
+                @Model.apellido <br />
+                @Html.Label("Edad: ")
+                @Model.edad <br />
+                @Html.Label("Peso: ")
+                @Model.peso <br />
+            </div>
+        }
+    </div>
+</body>
+</html>
