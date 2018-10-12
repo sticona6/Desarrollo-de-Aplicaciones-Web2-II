@@ -1,0 +1,45 @@
+﻿@model List<SISTEMAMVCTICONA.Models.TipoUsuario>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="page-header">
+    <a href="~/TipoUsuario/AgregarEditar/" 
+       class="btn btn-danger">Agregar Nuevo</a>
+    Tipo Usuario
+    </h2>
+
+@using (Html.BeginForm("Index", "TipoUsuario", FormMethod.Post,
+    new { criterio = "frm-buscar" }))
+{
+    <div class="text-left">
+        @Html.Label("Buscar: ")
+        @Html.TextBox("Criterio")
+        <button type="submit" class="btn btn-info">BUSCAR</button>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:50px">Id</th>
+            <th style="width:100px">Tipo Usuario</th>
+            <th style="width:200px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@(item.idtipousuario)</th>
+                <th>@(item.nombre)</th>
+                <th style="align-content:center;">
+                    <a href="~/TipoUsuario/Ver/@item.idtipousuario" class="btn btn-xs btn-warning">Detalles</a>
+                    <a href="~/TipoUsuario/AgregarEditar/@item.idtipousuario" class="btn btn-xs btn-primary">Modificar</a>
+                    <a href="~/TipoUsuario/Eliminar/@item.idtipousuario" class="btn btn-xs btn-danger" onclick="return confirm('¿Esta seguro de eliminar el registro ...?')">Eliminar</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+
