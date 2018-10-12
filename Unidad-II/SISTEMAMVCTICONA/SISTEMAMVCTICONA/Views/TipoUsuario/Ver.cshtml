@@ -1,0 +1,28 @@
+﻿@model SISTEMAMVCTICONA.Models.TipoUsuario
+@{
+    ViewBag.Title = "Ver";
+}
+
+<h2>Ver</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/TipoUsuario/Index">Tipo de Usuario</a></li>
+        <li class="breadcrumb-item active">@Model.nombre</li>
+    </ol>
+</nav>
+
+<div class="panel-panel-default">
+    <div class="panel-heading">
+        Informacion detallada de tipo de usuario
+    </div>
+
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>@Model.idtipousuario</dd>
+            <dt>Nombre</dt>
+            <dd>@Model.nombre</dd>
+        </dl>
+    </div>
+</div>
+
