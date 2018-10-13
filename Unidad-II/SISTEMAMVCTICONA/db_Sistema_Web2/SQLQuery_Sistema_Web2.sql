@@ -100,7 +100,7 @@ insert into TipoUsuario(nombre) values ('Vendedor')
 insert into TipoUsuario(nombre) values ('Cliente')
 
 insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
-values (1,'elanchipa','1234','Administrador','Admin','admin@hotmail.com','A')
+values (1,'elanchipa','1234','Enrique','Lanchipa','admin@hotmail.com','A')
 insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
 values (2,'jperez','1234','Juan','Perez','jperez@gmail.com','A')
 insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
