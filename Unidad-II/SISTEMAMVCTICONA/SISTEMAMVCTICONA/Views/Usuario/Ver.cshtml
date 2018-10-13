@@ -1,0 +1,35 @@
+﻿@model SISTEMAMVCTICONA.Models.Usuario
+@{
+    ViewBag.Title = "Ver";
+}
+
+<h2>Ver</h2>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Usuario/Index">Usuario</a></li>
+        <li class="breadcrumb-item active">@Model.nombre, @Model.apellido</li>
+    </ol>
+</nav>
+
+<div class="panel-panel-default">
+    <div class="panel-heading">
+        Informacion detallada de usuario
+    </div>
+
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+            <dt>Id</dt>
+            <dd>@Model.idusuario</dd>
+            <dt>Usuario</dt>
+            <dd>@Model.usuario</dd>
+            <dt>Nombre y Apellido</dt>
+            <dd>@Model.nombre @Model.apellido</dd>
+            <dt>E-mail</dt>
+            <dd>@Model.email</dd>
+            <dt>Estado</dt>
+            <dd>@(Model.estado == "A" ? "Activo" : "Inactivo")</dd>
+        </dl>
+    </div>
+</div>
+
+

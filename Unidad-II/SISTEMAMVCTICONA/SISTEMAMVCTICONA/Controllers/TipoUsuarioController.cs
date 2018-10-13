@@ -34,6 +34,7 @@ namespace SISTEMAMVCTICONA.Controllers
         }
 
         public ActionResult AgregarEditar(int id = 0) {
+            ViewBag.Tipo = tipousuario.Listar();
             return View(
                 id == 0 ? new TipoUsuario() //agregar un nuevo objeto
                 : tipousuario.Obtener(id)

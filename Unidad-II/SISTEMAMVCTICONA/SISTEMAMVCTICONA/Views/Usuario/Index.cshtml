@@ -1,0 +1,51 @@
+﻿@model List<SISTEMAMVCTICONA.Models.Usuario>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<h2 class="page-header">
+    <a href="~/Usuario/AgregarEditar/"
+       class="btn btn-danger">Agregar Nuevo</a>
+    Usuario
+</h2>
+
+@using (Html.BeginForm("Index", "Usuario", FormMethod.Post,
+                new { criterio = "frm-buscar" }))
+{
+    <div class="text-left">
+        @Html.Label("Buscar: ")
+        @Html.TextBox("Criterio")
+        <button type="submit" class="btn btn-info">BUSCAR</button>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th style="width:50px">Id</th>
+            <th style="width:100px">Usuario</th>
+            <th style="width:100px">Nombres y Apellidos</th>
+            <th style="width:100px">E-mail</th>
+            <th style="width:50px">Estado</th>
+            <th style="width:200px"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>@(item.idusuario)</th>
+                <th>@(item.usuario)</th>
+                <th>@(item.nombre) @(item.apellido)</th>
+                <th>@(item.email)</th>
+                <th>@(item.estado == "A" ? "Activo" : "Inactivo")</th>
+                <th style="align-content:center;">
+                    <a href="~/Usuario/Ver/@item.idusuario" class="btn btn-xs btn-warning">Detalles</a>
+                    <a href="~/Usuario/AgregarEditar/@item.idusuario" class="btn btn-xs btn-primary">Modificar</a>
+                    <a href="~/Usuario/Eliminar/@item.idusuario" class="btn btn-xs btn-danger" onclick="return confirm('¿Esta seguro de eliminar el registro ...?')">Eliminar</a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>

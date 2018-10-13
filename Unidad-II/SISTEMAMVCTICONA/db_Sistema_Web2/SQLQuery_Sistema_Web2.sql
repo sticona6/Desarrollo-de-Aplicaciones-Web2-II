@@ -36,10 +36,12 @@ go
 CREATE TABLE Usuario (
        idusuario         int identity(1,1) NOT NULL,
        idtipousuario    int NOT NULL,
-       clave             varchar(20) NULL,
-       nombre            varchar(20) NULL,
-       apellido          varchar(20) NULL,
+	   usuario varchar(100) NOT NULL,
+       clave             varchar(100)NOT NULL,
+       nombre            varchar(20) NOT NULL,
+       apellido          varchar(20) NOT NULL,
        email             varchar(50) NULL,
+	   estado			 char(1) NOT NULL,
        PRIMARY KEY (idusuario), 
        FOREIGN KEY (idtipousuario) REFERENCES TipoUsuario
 )
@@ -97,14 +99,14 @@ insert into TipoUsuario(nombre) values ('Administrador')
 insert into TipoUsuario(nombre) values ('Vendedor')
 insert into TipoUsuario(nombre) values ('Cliente')
 
-insert into usuario(idtipousuario,clave,nombre,apellido,email) 
-values (1,'1234','Administrador','Admin','admin@hotmail.com')
-insert into usuario(idtipousuario,clave,nombre,apellido,email) 
-values (2,'1234','Juan','Perez','jperez@gmail.com')
-insert into usuario(idtipousuario,clave,nombre,apellido,email) 
-values (3,'1234','Ana','Blas','ablas@outlook.com')
-insert into usuario(idtipousuario,clave,nombre,apellido,email) 
-values (3,'1234','Jony','Sanchez','jsanchez@gmail.com')
+insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
+values (1,'elanchipa','1234','Administrador','Admin','admin@hotmail.com','A')
+insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
+values (2,'jperez','1234','Juan','Perez','jperez@gmail.com','A')
+insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
+values (3,'ablas','1234','Ana','Blas','ablas@outlook.com','I')
+insert into usuario(idtipousuario,usuario,clave,nombre,apellido,email,estado) 
+values (3,'jsanchez','1234','Jony','Sanchez','jsanchez@gmail.com','I')
 
 insert into Pedido(idusuario,fecha,estado) values (1,'20-01-2015','Realizado')
 insert into Pedido(idusuario,fecha,estado) values (2,'20-01-2015','Realizado')
@@ -127,5 +129,7 @@ insert into Detallepedido(idpedido,idproducto,precio,cantidad) values (4,4,499,1
 insert into Detallepedido(idpedido,idproducto,precio,cantidad) values (4,5,500,1)
 
 
-select * from dbo.TipoUsuario
+select * from dbo.Usuario
 
+
+select * from dbo.TipoUsuario
